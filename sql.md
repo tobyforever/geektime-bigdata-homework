@@ -1,5 +1,54 @@
 # geektime-bigdata-homework
 
+准备hive建表
+```sql
+DROP TABLE IF EXISTS `student`;
+
+CREATE TABLE `student` (`s_id` varchar(20),`s_name` varchar(20),`s_birth` varchar(20),`s_sex` varchar(10)) row format delimited fields terminated by ',' lines terminated by '\n';
+
+load data local inpath '/opt/install/data/student.csv' into table student;
+
+
+
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course` (
+  `c_id` varchar(20),
+  `c_name` varchar(20),
+  `t_id` varchar(20)
+)
+row format delimited
+fields terminated by ','
+lines terminated by '\n';
+
+load data local inpath '/opt/install/data/course.csv' into table course;
+
+
+DROP TABLE IF EXISTS `teacher`;
+CREATE TABLE `teacher`(
+`t_id` varchar(20),
+`t_name` varchar(20)
+)
+row format delimited
+fields terminated by ','
+lines terminated by '\n';
+
+load data local inpath '/opt/install/data/teacher.csv' into table teacher;
+
+
+DROP TABLE IF EXISTS `score`;
+CREATE TABLE `score`(
+`s_id` varchar(20),
+`c_id` varchar(20),
+`s_score` int
+)
+row format delimited
+fields terminated by ','
+lines terminated by '\n';
+
+load data local inpath '/opt/install/data/score.csv' into table score;
+
+```
+
 查询"01"课程比"02"课程成绩高的学生的信息及课程分数
 
 ```sql
