@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         String logFile = "E:\\download\\test.txt"; // Should be some file on your system
+        logFile="hdfs://bigdata01:8020/geektime/test.txt";
         SparkSession spark = SparkSession.builder()
 //                .master("local")
                 .appName("Simple Application").getOrCreate();
